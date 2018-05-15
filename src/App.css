@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+
+}
+
+.header{
+  height: 5rem;
+  font-family: 'Kelly Slab';
+    background-color: #cca353;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 4rem;
+    color:white;
+    font-weight: 600;
+}
