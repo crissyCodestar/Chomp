@@ -1,0 +1,46 @@
+.featured__cards {
+  width: 70%;
+  margin: auto;
+}
+
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  padding: 3rem;
+
+}
+
+.card {
+  display: grid;
+  border: 2px solid #e7e7e7;
+  border-radius: 7px;
+  padding: .5rem -10rem;
+}
+
+.card__img {
+  height: 15rem;
+  width: auto;
+  overflow: hidden;
+
+  border-radius: 7px;
+}
+
+img {
+  width: 110%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin-left: -1rem;
+  margin-top: -.7rem;
+}
+
+.card__button {
+
+}
+
+.card__header {
+  text-align: center;
+  font-size: 1rem;
+  padding: .5rem;
+}
