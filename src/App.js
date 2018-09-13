@@ -34,21 +34,13 @@ class App extends Component {
      });
   }
 
-  renderSearch = () =>{
-    return (
-      <div>
 
-      </div>
-    )
-
-  }
 
   renderBusinesses =()=>{
   return (
     <div>
-
-    <BusinessList businesses={this.state.businesses} />
-  </div>
+      <BusinessList businesses={this.state.businesses} />
+    </div>
     )
   }
 
@@ -61,12 +53,10 @@ class App extends Component {
         <Link to='/'><h1 className="header">Chomp</h1></Link>
         <SearchBar searchYelp={this.searchYelp} />
     </div>
-    <div>
-      <Suggestions events={this.state.events} />
-    </div>
     <Switch>
-      <Route exact path='/' render={this.renderSearch} />
+      <Route exact path='/' render={(events) => <Suggestions events={this.state.events} />} />
       <Route path='/businesses' render={this.renderBusinesses} />
+      <Route path='/businesses/:id' component={businessProfile} />
     </Switch>
     </div>
     );

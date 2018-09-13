@@ -20,19 +20,18 @@
 
 .card__img {
   height: 15rem;
-  width: auto;
+  width: 100%;
   overflow: hidden;
-
   border-radius: 7px;
+
 }
 
 img {
   width: 110%;
-  height: auto;
+  height: 15rem;
   object-fit: cover;
-  display: block;
   margin-left: -1rem;
-  margin-top: -.7rem;
+  /* margin-top: rem; */
 }
 
 .card__button {
@@ -42,5 +41,5 @@ img {
 .card__header {
   text-align: center;
   font-size: 1rem;
-  padding: .5rem;
+  padding: 0 .5rem;
 }

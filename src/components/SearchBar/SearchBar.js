@@ -51,7 +51,7 @@ handleSearch(event){
   this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy)
   this.setState({searched:true})
   event.preventDefault();
-   this.props.history.push('/businesses');
+  this.props.history.push('/businesses');
 
 }
 

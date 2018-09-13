@@ -25,11 +25,7 @@ class businessProfile extends React.Component{
     console.log(this.businesses)
     return(
         <div>
-        <Switch>
-        <Route path='/' component={Yelp.businessLink}/>
-        <Route path='/businesses/:id' component={Yelp.businessLink}/>
-
-      </Switch>
+  
       </div>
     )
   }
