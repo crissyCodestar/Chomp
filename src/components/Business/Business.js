@@ -1,8 +1,22 @@
 import React from 'react';
 import './Business.css';
+import Yelp from '../../util/Yelp';
 
 
 class Business extends React.Component {
+  constructor(){
+    super();
+
+    this.state= {
+      business:[]
+    }
+  }
+
+  getBusinessProfile(id){
+    Yelp.businessLink(id).then(business => {
+      this.setState({business: business})
+    })
+  }
 
   render(){
     const { id,imageSrc, name, address, city, state, zipCode, category, rating, reviewCount} = this.props.business

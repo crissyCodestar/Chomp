@@ -15,6 +15,9 @@ const Suggestions = (events) =>  (
           <div className='card__header'>
             <h4>{event.name}</h4>
           </div>
+          <div>
+            <p>Category: {event.category}</p>
+          </div>
         </div>
       ))}
     </div>
