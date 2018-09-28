@@ -1,6 +1,7 @@
 import React from 'react';
 import './Business.css';
 import Yelp from '../../util/Yelp';
+import { Link } from 'react-router-dom';
 
 
 class Business extends React.Component {
@@ -8,27 +9,22 @@ class Business extends React.Component {
     super();
 
     this.state= {
-      business:[]
+
     }
   }
 
-  getBusinessProfile(id){
-    Yelp.businessLink(id).then(business => {
-      this.setState({business: business})
-    })
-  }
 
   render(){
     const { id,imageSrc, name, address, city, state, zipCode, category, rating, reviewCount} = this.props.business
     return(
       <div className="Business">
-<hr />
+      <hr />
         <div className="image-container">
           <img src={imageSrc} alt="" />
 
         </div>
         <div className="vertical_content">
-          <h2>{name}</h2>
+          <Link to={`/businesses/${id}`}>{name}</Link>
           <div className="Business-information">
           <div className="Business-reviews">
             <h3>{category.toUpperCase()}</h3>
