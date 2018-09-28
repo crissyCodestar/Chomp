@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       businesses:[],
       events: [],
+      hotEvents: [],
     }
 
     this.searchYelp = this.searchYelp.bind(this)
@@ -25,6 +26,9 @@ class App extends Component {
   componentDidMount(){
     Yelp.events().then(events => {
       this.setState({events: events})
+    }),
+    Yelp.hotAndNew().then(hotEvents => {
+      this.setState({ hotEvents : hotEvents})
     })
   }
 
@@ -46,7 +50,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.events)
+    console.log(this.state.events,"hot=>", this.state.hotEvents)
     return (
     <div>
       <div className="App">
@@ -54,7 +58,7 @@ class App extends Component {
         <SearchBar searchYelp={this.searchYelp} />
     </div>
     <Switch>
-      <Route exact path='/' render={(events) => <Suggestions events={this.state.events} />} />
+      <Route exact path='/' render={(events, hotEvents) => <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />} />
       <Route path='/businesses' render={this.renderBusinesses} />
       <Route path='/businesses/:id' component={businessProfile} />
     </Switch>

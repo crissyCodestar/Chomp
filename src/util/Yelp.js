@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
 
 const apiKey ='d22VAAFnffpCl8jh9z2KhwG2rtqoKlpGdactYnGvHSwq1b-3KPci5QSB6ufj9544xuhWAr2sbH0PlRgABBseVA7_xR0mdJXqRxZ5oXwyQ4A7DUE2PJrI-uFvBR9wWnYx';
 
@@ -20,7 +20,7 @@ search(term, location, sortBy){
       console.log(jsonResponse)
       return jsonResponse.businesses.map(business => ({
         id: business.id,
-        name: <Link to={`/businesses/${business.id}`}>{business.name}</Link>,
+        name: business.name,
         address:business.location.address1,
         imageSrc:business.image_url,
         city:business.location.city,
@@ -37,7 +37,7 @@ search(term, location, sortBy){
 },
 
 events(){
-  return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location=11206`, {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?location=11201`, {
     headers: {
       Authorization: `Bearer ${apiKey}`
     }
@@ -47,6 +47,20 @@ events(){
     if(eventList.events){
       console.log(eventList.events)
       return eventList.events
+    }
+  })
+},
+hotAndNew(){
+  return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=food&location=11201&attribute=hot_and_new&limit=3`, {
+    headers: {
+      Authorization: `Bearer ${apiKey}`
+    }
+  }).then(res => {
+    return res.json()
+  }).then(hotNNew => {
+    if(hotNNew.businesses){
+      console.log(hotNNew.businesses)
+      return hotNNew.businesses
     }
   })
 },
