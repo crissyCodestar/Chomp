@@ -25,8 +25,8 @@ class businessProfile extends React.Component{
     console.log(this.businesses)
     return(
         <div>
-  
-      </div>
+            Busniness Profile 
+        </div>
     )
   }
 

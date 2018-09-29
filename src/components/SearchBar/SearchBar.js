@@ -73,8 +73,9 @@ render() {
   // if(this.state.searched){
   //   return <Redirect to={"/businesses"} render={this.renderBusinesses}/>
   // }
-
+  console.log(this.props.history)
   return(
+
       <div className="SearchBar" >
         <div className="SearchBar-sort-options">
           <ul>

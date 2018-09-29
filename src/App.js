@@ -20,7 +20,8 @@ class App extends Component {
       hotEvents: [],
     }
 
-    this.searchYelp = this.searchYelp.bind(this)
+    this.searchYelp = this.searchYelp.bind(this);
+    this.renderSuggetions = this.renderSuggetions.bind(this);
   }
 
   componentDidMount(){
@@ -40,11 +41,20 @@ class App extends Component {
 
 
 
+
   renderBusinesses =()=>{
   return (
     <div>
       <BusinessList businesses={this.state.businesses} />
     </div>
+    )
+  }
+
+  renderSuggetions(){
+    return (
+      <div>
+            <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
+      </div>
     )
   }
 
@@ -58,8 +68,8 @@ class App extends Component {
         <SearchBar searchYelp={this.searchYelp} />
     </div>
     <Switch>
-      <Route exact path='/' render={(events, hotEvents) => <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />} />
-      <Route path='/businesses' render={this.renderBusinesses} />
+      <Route exact path='/' render={this.renderSuggetions} />
+      <Route exact path='/businesses' render={this.renderBusinesses} />
       <Route path='/businesses/:id' component={businessProfile} />
     </Switch>
     </div>
