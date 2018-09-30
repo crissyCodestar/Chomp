@@ -9,8 +9,7 @@ import Business from '../Business/Business';
 class BusinessList extends React.Component {
 
   render() {
-    console.log("BL:", this.props.businesses)
-    return(
+    return (
       <div className="BuisnessList">
       {
         this.props.businesses.map(business => (

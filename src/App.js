@@ -18,6 +18,7 @@ class App extends Component {
       businesses:[],
       events: [],
       hotEvents: [],
+      loading: true
     }
 
     this.searchYelp = this.searchYelp.bind(this);
@@ -35,7 +36,7 @@ class App extends Component {
 
   searchYelp(term, location, sortBy) {
      Yelp.search(term, location, sortBy).then(businesses => {
-       this.setState({businesses: businesses});
+       this.setState({businesses: businesses ,loading: false});
      });
   }
 
@@ -43,7 +44,14 @@ class App extends Component {
 
 
   renderBusinesses =()=>{
-  return (
+  return this.state.loading ?
+   (
+    <div>
+      <h1>Loading...</h1>
+    </div>
+  ) : this.state.businesses == 0 ? (
+    <div> Doesnt exist</div>
+  ) : (
     <div>
       <BusinessList businesses={this.state.businesses} />
     </div>

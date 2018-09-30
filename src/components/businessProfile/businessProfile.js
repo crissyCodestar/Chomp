@@ -1,20 +1,26 @@
 import React from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
 
-import BusinessList from '../BusinessList/BusinessList';
+import BusinessProfileInfo from './BusinessProfileInfo';
 import SearchBar from '../SearchBar/SearchBar';
 import Yelp from '../../util/Yelp';
-
-const apiKey ='d22VAAFnffpCl8jh9z2KhwG2rtqoKlpGdactYnGvHSwq1b-3KPci5QSB6ufj9544xuhWAr2sbH0PlRgABBseVA7_xR0mdJXqRxZ5oXwyQ4A7DUE2PJrI-uFvBR9wWnYx';
-
 
 
 class businessProfile extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      businesses:[]
+      businessInfo: []
     }
+
+  }
+
+
+  componentDidMount(){
+    let id = this.props.match.params.id
+    Yelp.businessLink(id).then(businessInfo => {
+      this.setState({ businessInfo: businessInfo })
+    });
   }
 
 
@@ -22,16 +28,16 @@ class businessProfile extends React.Component{
 
 
   render(){
-    console.log(this.businesses)
+    console.log("this is business info", this.state.businessInfo)
     return(
         <div>
-            Busniness Profile 
+          <BusinessProfileInfo businessInfo={this.state.businessInfo} />
         </div>
     )
   }
 
 }
-// <Route exact path='/businesses' render={this.renderBusinesses}/>
+
 
 
 export default businessProfile;
