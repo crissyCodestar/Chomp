@@ -45,7 +45,6 @@ events(){
     return res.json()
   }).then(eventList => {
     if(eventList.events){
-      console.log(eventList.events)
       return eventList.events
     }
   })
@@ -59,21 +58,23 @@ hotAndNew(){
     return res.json()
   }).then(hotNNew => {
     if(hotNNew.businesses){
-      console.log(hotNNew.businesses)
       return hotNNew.businesses
     }
   })
 },
 
-businessLink (id){
+businessLink(id){
   return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`, {
     headers: {
       Authorization: `Bearer ${apiKey}`
     }
   }).then(response =>{
     return response.json()
-  }).then(jsonResponse => {
-    console.log(jsonResponse)
+  }).then(businessInfo => {
+    if(businessInfo){
+      console.log(businessInfo)
+      return businessInfo
+    }
   })
 
 }
