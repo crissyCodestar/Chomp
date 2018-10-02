@@ -50,7 +50,7 @@ class App extends Component {
       <h1>Loading...</h1>
     </div>
   ) : this.state.businesses == 0 ? (
-    <div> Doesnt exist</div>
+    <div> Doesnt exist, try your search again</div>
   ) : (
     <div>
       <BusinessList businesses={this.state.businesses} />
@@ -70,16 +70,18 @@ class App extends Component {
   render() {
     console.log(this.state.events,"hot=>", this.state.hotEvents)
     return (
-    <div>
-      <div className="App">
+    <div className="App">
+      <div>
         <Link to='/'><h1 className="header">Chomp</h1></Link>
         <SearchBar searchYelp={this.searchYelp} />
     </div>
-    <Switch>
-      <Route exact path='/' render={this.renderSuggetions} />
-      <Route exact path='/businesses' render={this.renderBusinesses} />
-      <Route path='/businesses/:id' component={businessProfile} />
-    </Switch>
+      <div className='container'>
+        <Switch>
+          <Route exact path='/' render={this.renderSuggetions} />
+          <Route exact path='/businesses' render={this.renderBusinesses} />
+          <Route path='/businesses/:id' component={businessProfile} />
+        </Switch>
+      </div>
     </div>
     );
   }
