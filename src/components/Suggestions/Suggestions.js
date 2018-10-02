@@ -6,9 +6,8 @@ import { Link } from 'react-dom';
 
 const Suggestions = ({events, hotEvents}) =>  (
   <section>
-  {console.log("hot", hotEvents)}
       <div className='featured__cards'>
-        <div className='header'>
+        <div className='h2'>
           <h1>Hot And New</h1>
         </div>
         <div className='card__container'>
@@ -18,7 +17,7 @@ const Suggestions = ({events, hotEvents}) =>  (
         </div>
       </div>
       <div className='featured__cards'>
-          <div className='header'>
+          <div className='h2'>
               <h1>Featured Events</h1>
           </div>
         <div className='card__container'>
