@@ -12,7 +12,7 @@ const Events = ({event, description, id, image_url, name, category, is_free }) =
           <h4>{event.name}</h4>
         </div>
         <div>
-          {event.is_free ?  "FREE event" : `$${event.cost }`} 
+          {event.is_free ?  "FREE event" : `$${event.cost }`}
         </div>
         <div>
           <p>Category: {event.category}</p>

@@ -72,7 +72,7 @@ businessLink(id){
     return response.json()
   }).then(businessInfo => {
     if(businessInfo){
-      console.log(businessInfo)
+      console.log("BUSINESS INFO",businessInfo)
       return businessInfo
     }
   })

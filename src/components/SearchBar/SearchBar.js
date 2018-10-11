@@ -76,7 +76,7 @@ render() {
   console.log(this.props.history)
   return(
 
-      <div className="SearchBar" >
+      <div className={!this.state.searched ? "SearchBar" : "SearchBarSearched"} >
         <div className="SearchBar-sort-options">
           <ul>
             {this.state.searched ? this.renderSortByOptions() : ""}

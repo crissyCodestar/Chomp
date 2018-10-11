@@ -1,10 +1,21 @@
 .App {
-  text-align: center;
+
   background-color: #474747;
 }
 
+a:link{
+  color: rgb(121,91,0);
+  text-decoration: none;
+}
+
+a:hover{
+  color:  #cca353;
+  text-decoration: underline;
+}
+
+
 .container {
-  text-align: center;
+
   background-color: #fff;
   width: 70%;
   margin: auto;
@@ -24,6 +35,7 @@
 }
 
 .h2{
+    text-align: center;
   height: 2rem;
   font-family: 'Kelly Slab';
     background-color: #cca353;
