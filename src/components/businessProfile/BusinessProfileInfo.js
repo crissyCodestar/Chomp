@@ -10,7 +10,7 @@ import Body from './Components/Body';
 import Reviews from './Components/Reviews';
 
 
-const BusinessProfileInfo = ({businessInfo}) => (
+const BusinessProfileInfo = ({businessInfo, reviewsList}) => (
 
         <div>
         {/*
@@ -19,16 +19,16 @@ const BusinessProfileInfo = ({businessInfo}) => (
             Highlighted pictures (Top, Left/right)
           {Header}
             Name   Category Price Rating Review count
-          {Top sections}
+          {Body}
 
             Info panel (Top, left/right)
               phone address hours/open Now website
                 *Is cloased{returns only of cloased}
-          {Lower Section}
+          {Reviews}
             Highligth Reiews
 
-        */
-      console.log(businessInfo)}
+        */}
+
 
             <Header businessInfo={businessInfo} />
 
@@ -36,7 +36,7 @@ const BusinessProfileInfo = ({businessInfo}) => (
 
             <Body businessInfo={businessInfo} />
 
-            <Reviews businessInfo={businessInfo} />
+            <Reviews reviewsList={reviewsList} />
 
         </div>
 )

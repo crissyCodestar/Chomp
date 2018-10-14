@@ -6,14 +6,17 @@ import Ratings from './Ratings';
 const HotAndNew = ({hotEvent, description, id, image_url, name, category, distance }) => (
   <div>
       <div className='card' key={hotEvent.id}>
-          <a href={hotEvent.url} target='blank'>
+          <Link to={`/businesses/${hotEvent.id}`}>
               <div className='card__img'>
                   <img src={hotEvent.image_url} />
               </div>
-          </a>
+          </Link>
           <div className='card_info'>
               <div className='card__header'>
-                  <a href={hotEvent.url} target='blank'>{hotEvent.name}</a>
+                  <Link to={`/businesses/${hotEvent.id}`}>
+                      {hotEvent.name}
+                  </Link>
+                  {/*<a href={hotEvent.url} target='blank'>{hotEvent.name}</a>*/}
               </div>
               <div>
                   {/* {Math.round(hotEvent.distance * 0.00062137) / 100} miles */}
