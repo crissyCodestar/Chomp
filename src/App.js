@@ -23,6 +23,7 @@ class App extends Component {
 
     this.searchYelp = this.searchYelp.bind(this);
     this.renderSuggetions = this.renderSuggetions.bind(this);
+    this.renderBusinesses = this.renderBusinesses.bind(this);
   }
 
   componentDidMount(){
@@ -43,7 +44,7 @@ class App extends Component {
 
 
 
-  renderBusinesses =()=>{
+  renderBusinesses(){
   return this.state.loading ?
    (
     <div>

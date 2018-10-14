@@ -8,14 +8,14 @@ class Ratings extends Component{
 
   render(){
     let stars = []
-    let remander = this.props.rating % 1
+    let remainder = this.props.rating % 1
     for(let i = 1; i <= 5; i++){
       let classRating = "star_rating";
 
       if(this.props.rating >= i && this.props.rating !== null){
         classRating += 'star_rating full_star'
       }
-      if(remander > 0){
+      if(remainder > 0){
         classRating += 'star_rating half_star'
       }
 

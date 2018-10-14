@@ -10,7 +10,8 @@ class businessProfile extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      businessInfo: []
+      businessInfo: [],
+      reviews: [],
     }
 
   }
@@ -21,6 +22,9 @@ class businessProfile extends React.Component{
     Yelp.businessLink(id).then(businessInfo => {
       this.setState({ businessInfo: businessInfo })
     });
+    Yelp.businessReviews(id).then(req => {
+      this.setState({ reviews: req })
+    });
   }
 
 
@@ -28,10 +32,10 @@ class businessProfile extends React.Component{
 
 
   render(){
-    console.log("this is business info", this.state.businessInfo)
+    // console.log("this is REWVIES info", this.state.reviews)
     return(
         <div>
-          <BusinessProfileInfo businessInfo={this.state.businessInfo} />
+          <BusinessProfileInfo businessInfo={this.state.businessInfo} reviewsList={this.state.reviews}/>
         </div>
     )
   }

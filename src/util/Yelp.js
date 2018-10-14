@@ -17,7 +17,7 @@ search(term, location, sortBy){
     return response.json()
   }).then(jsonResponse => {
     if(jsonResponse.businesses){
-      console.log(jsonResponse)
+      // console.log(jsonResponse)
       return jsonResponse.businesses.map(business => ({
         id: business.id,
         name: business.name,
@@ -72,13 +72,28 @@ businessLink(id){
     return response.json()
   }).then(businessInfo => {
     if(businessInfo){
-      console.log("BUSINESS INFO",businessInfo)
+      // console.log("BUSINESS INFO",businessInfo)
       return businessInfo
     }
   })
 
-}
+},
 
+businessReviews(id){
+  return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}/reviews`, {
+    headers: {
+      Authorization: `Bearer ${apiKey}`
+    }
+  }).then(res =>{
+    return res.json()
+  }).then(req => {
+    // console.log("REVIEWS",req.reviews)
+    if(req.reviews){
+      return req.reviews
+    }
+  })
+
+}
 
 };
 
