@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Suggestions.css';
-import Ratings from './Ratings';
+import Ratings from '../../SmartComponents/Ratings';
 
-const HotAndNew = ({hotEvent, description, id, image_url, name, category, distance }) => (
+const HotAndNew = ({hotEvent, description, id, image_url, name, category, distance }) =>(
+
   <div>
       <div className='card' key={hotEvent.id}>
           <Link to={`/businesses/${hotEvent.id}`}>
@@ -37,5 +38,6 @@ const HotAndNew = ({hotEvent, description, id, image_url, name, category, distan
       </div>
     </div>
 )
+
 
 export default HotAndNew;

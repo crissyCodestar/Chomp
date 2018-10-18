@@ -2,9 +2,12 @@ import React from 'react';
 import './Suggestions.css';
 import Events from './SuggestionCards/Events';
 import HotAndNew from './SuggestionCards/HotAndNew';
+import Loading from '../SmartComponents/Loading';
 import { Link } from 'react-dom';
 
-const Suggestions = ({events, hotEvents}) =>  (
+const Suggestions = ({events, hotEvents}) =>  {
+
+return   (
   <section>
       <div className='featured__cards'>
         <div className='h2'>
@@ -29,6 +32,6 @@ const Suggestions = ({events, hotEvents}) =>  (
 
   </section>
 )
-
+}
 
 export default Suggestions;
