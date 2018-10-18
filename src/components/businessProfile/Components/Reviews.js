@@ -1,16 +1,22 @@
 import React from 'react';
-import Ratings from '../../Suggestions/SuggestionCards/Ratings';
+import Ratings from '../../SmartComponents/Ratings';
 
-const Reviews = ({reviewsList}) => (
+const Reviews = ({review, date}) => (
   <div>
-      {console.log(reviewsList)}
-      <h1>Suggested Reviews</h1>
-      {reviewsList.map(review => (
+
+
+          <div>
+            <div>
+                <img src={review.user.image_url} alt="" /> <p>{review.user.name}</p>
+            </div>
+          </div>
           <div key={review.id}>
               <Ratings rating={review.rating} />
+              <p>{new Date(date).toLocaleString().slice(0,9)}</p>
               <p>{review.text}</p>
           </div>
-      ))}
+
+
   </div>
 );
 

@@ -5,9 +5,10 @@ import './App.css';
 import BusinessList from './components/BusinessList/BusinessList';
 import SearchBar from './components/SearchBar/SearchBar';
 import Yelp from './util/Yelp';
-import businessProfile from './components/businessProfile/businessProfile';
+import BusinessProfile from './components/BusinessProfile/BusinessProfile';
 import Home from './components/Home/Home';
 import Suggestions from './components/Suggestions/Suggestions';
+import Loading from './components/SmartComponents/Loading';
 
 
 
@@ -18,7 +19,8 @@ class App extends Component {
       businesses:[],
       events: [],
       hotEvents: [],
-      loading: true
+      loading: true,
+      eventLoading: true
     }
 
     this.searchYelp = this.searchYelp.bind(this);
@@ -28,10 +30,10 @@ class App extends Component {
 
   componentDidMount(){
     Yelp.events().then(events => {
-      this.setState({events: events})
+      this.setState({events: events ,eventLoading: false})
     }),
     Yelp.hotAndNew().then(hotEvents => {
-      this.setState({ hotEvents : hotEvents})
+      this.setState({ hotEvents : hotEvents ,eventLoading: false})
     })
   }
 
@@ -48,7 +50,7 @@ class App extends Component {
   return this.state.loading ?
    (
     <div>
-      <h1>Loading...</h1>
+      <Loading />
     </div>
   ) : this.state.businesses == 0 ? (
     <div> Doesnt exist, try your search again</div>
@@ -60,10 +62,17 @@ class App extends Component {
   }
 
   renderSuggetions(){
-    return (
+
+    return this.state.eventLoading ?
+     (
       <div>
-            <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
+        <Loading />
       </div>
+    ) :
+    (    <div>
+              <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
+        </div>
+
     )
   }
 
@@ -80,7 +89,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={this.renderSuggetions} />
           <Route exact path='/businesses' render={this.renderBusinesses} />
-          <Route path='/businesses/:id' component={businessProfile} />
+          <Route path='/businesses/:id' component={BusinessProfile} />
         </Switch>
       </div>
     </div>

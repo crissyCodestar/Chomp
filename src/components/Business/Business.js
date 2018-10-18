@@ -1,6 +1,6 @@
 import React from 'react';
 import './Business.css';
-import businessProfile from '../businessProfile/businessProfile';
+import BusinessProfile from '../BusinessProfile/BusinessProfile';
 import Yelp from '../../util/Yelp';
 import { Link, Route } from 'react-router-dom';
 
