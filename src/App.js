@@ -28,63 +28,53 @@ class App extends Component {
     this.renderBusinesses = this.renderBusinesses.bind(this);
   }
 
-  componentDidMount(){
-    Yelp.events().then(events => {
-      this.setState({events: events ,eventLoading: false})
-    }),
-    Yelp.hotAndNew().then(hotEvents => {
-      this.setState({ hotEvents : hotEvents ,eventLoading: false})
-    })
-  }
+componentDidMount(){
+  Yelp.events().then(events => {
+    this.setState({events: events ,eventLoading: false})
+  }),
+  Yelp.hotAndNew().then(hotEvents => {
+    this.setState({ hotEvents : hotEvents ,eventLoading: false})
+  })
+}
 
-  searchYelp(term, location, sortBy) {
-     Yelp.search(term, location, sortBy).then(businesses => {
-       this.setState({businesses: businesses ,loading: false});
-     });
-  }
+searchYelp(term, location, sortBy) {
+   Yelp.search(term, location, sortBy).then(businesses => {
+     this.setState({businesses: businesses ,loading: false});
+   });
+}
 
-
-
-
-  renderBusinesses(){
-  return this.state.loading ?
-   (
-    <div>
-      <Loading />
-    </div>
+renderBusinesses(){
+  return this.state.loading ? (
+        <Loading />
   ) : this.state.businesses == 0 ? (
     <div> Doesnt exist, try your search again</div>
   ) : (
-    <div>
       <BusinessList businesses={this.state.businesses} />
-    </div>
-    )
-  }
+  )
+}
 
-  renderSuggetions(){
-
-    return this.state.eventLoading ?
-     (
-      <div>
-        <Loading />
-      </div>
-    ) :
-    (    <div>
-              <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
-        </div>
-
-    )
-  }
+renderSuggetions(){
+  return this.state.eventLoading ? (
+      <Loading />
+  ) : (
+       <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
+  )
+}
 
 
-  render() {
-    console.log(this.state.events,"hot=>", this.state.hotEvents)
-    return (
+render() {
+    //console.log(this.state.events,"hot=>", this.state.hotEvents)
+    let eventPhotos = this.state.hotEvents.map(pic => pic.image_url)
+      let i = Math.floor(Math.random() * eventPhotos.length)
+  return (
     <div className="App">
+
       <div>
+
         <Link to='/'><h1 className="header">Chomp</h1></Link>
-        <SearchBar searchYelp={this.searchYelp} />
+        <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
     </div>
+
       <div className='container'>
         <Switch>
           <Route exact path='/' render={this.renderSuggetions} />

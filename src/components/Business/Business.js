@@ -2,7 +2,7 @@ import React from 'react';
 import './Business.css';
 import BusinessProfile from '../BusinessProfile/BusinessProfile';
 import Yelp from '../../util/Yelp';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Business extends React.Component {

@@ -15,7 +15,6 @@ a:hover{
 
 
 .container {
-
   background-color: #fff;
   width: 70%;
   margin: auto;
@@ -27,11 +26,11 @@ a:hover{
   font-family: 'Kelly Slab';
   background-color: #cca353;
   margin: 0;
-  padding: 5px 0;
+  padding: .30rem 2rem;
   font-size: 4rem;
   color:white;
   font-weight: 600;
-  opacity: .6;
+
 }
 
 .h2{
@@ -44,5 +43,4 @@ a:hover{
     font-size: 2rem;
     color:white;
     font-weight: 500;
-    opacity: .6;
 }

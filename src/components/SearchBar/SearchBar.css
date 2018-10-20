@@ -2,18 +2,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('https://i2.wp.com/therailway.co/wp-content/uploads/2017/11/AdobeStock_116452787.jpeg?ssl=1');
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  height: 25rem;
+  position: absolute;
+  top:50%;
 }
 
-.SearchBarSearched {
+.SearchBar_Hero {
+  height: 25rem;
+  width:100%;
+  position: relative;
+  object-fit: cover;
+  opacity: .5;
+}
+
+.SearchBar .Searched {
   background-image: linear-gradient(rgb(167,135,75), rgba(172,64,11,.4));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 15rem;
 }
 .SearchBar-sort-options ul {
@@ -35,7 +37,7 @@
   transition: color .25s;
 }
 
-.SearchBar-cort-options li.active,
+.SearchBar-sort-options li.active,
 .SearchBar-sort-options li.active:hover {
   border-bottom: 1px solid #f0c36c;
   color: #f0c36c;
@@ -43,17 +45,28 @@
 .SearchBar-fields {
   display: flex;
   justify-content: center;
-  margin-bottom: 2.88rem;
+  /* margin-bottom: 2.88rem; */
+  color: #fff;
 }
 
 .SearchBar-fields input {
   width: 21rem;
   padding: .66rem 1rem;
-  margin-right: 2.22rem;
-  border: 1px solid  #010129;
-  border-radius: 4px;
-  font-size: .77rem;
+  border: none;
+  border-bottom: 1px solid  #f0c36c;
+  /* border-radius: 4px; */
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2rem;
   font-weight: 500;
+}
+
+.SearchBar-fields input::placeholder{
+  color:#fff;
+  opacity: .8;
+}
+.SearchBar-fields input:focus{
+  outline: none;
 }
 
 .SearchBar-fields input:last-child {
@@ -62,6 +75,7 @@
 
 .SearchBar-submit {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .SearchBar-submit a {
@@ -76,7 +90,10 @@
 .SearchBar-submit a:hover {
   cursor: pointer;
   background-color: #a7874b;
+  text-decoration: none;
 }
+
+
 
 @media only screen and (max-width: 560px) {
   .SearchBar {

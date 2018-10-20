@@ -15,9 +15,9 @@ class Ratings extends Component{
       if(this.props.rating >= i && this.props.rating !== null){
         classRating += 'star_rating full_star'
       }
-      if(remainder > 0){
+    {/*  if(remainder > 0){
         classRating += 'star_rating half_star'
-      }
+      }*/}
 
       stars.push(
         <label className={classRating} key={i}>

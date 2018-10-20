@@ -28,15 +28,17 @@ constructor(props) {
   };
 }
 
-getSortByClass(sortByOption){
-  if(this.state.sortBy === sortByOption){
+getSortByClass(sortByOptions){
+  if(this.state.sortBy === sortByOptions){
     return 'active';
   }
   return '';
 }
 
-handleSortByChange(sortByOption){
-  this.setState({sortBy: sortByOption})
+handleSortByChange(event, sortByOptions){
+  this.setState({sortBy: sortByOptions})
+  console.log(event.target.sortByOptionValue);
+ // console.log(this.state.sortBy);
 }
 
 handleTermChange(event){
@@ -48,6 +50,7 @@ handleLocationChange(event){
 }
 
 handleSearch(event){
+  // console.log(this.state.sortBy);
   this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy)
   this.setState({searched:true})
   event.preventDefault();
@@ -55,28 +58,33 @@ handleSearch(event){
 
 }
 
+renderSortByOptions(){
 
-  renderSortByOptions(){
-    return Object.keys(this.sortByOptions).map(sortByOption => {
-      let sortByOptionValue = this.sortByOptions[sortByOption];
-      return (<li className={this.getSortByClass(sortByOptionValue)}
-                onClick={this.handleSortByChange}
-                key={sortByOptionValue}>
-              {sortByOption}
-            </li>);
-    });
-  }
+  return Object.keys(this.sortByOptions).map(sortByOption => {
+    let sortByOptionValue = this.sortByOptions[sortByOption];
+     console.log(sortByOptionValue);
+    return (<li className={this.getSortByClass(sortByOptionValue)}
+              onClick={this.handleSortByChange}
+              key={sortByOptionValue}>
+            {sortByOption}
+          </li>);
+  });
+}
 
 
 
 render() {
-  // if(this.state.searched){
-  //   return <Redirect to={"/businesses"} render={this.renderBusinesses}/>
-  // }
-  console.log(this.props.history)
-  return(
+  const {searched, handleSearch, handleTermChange, handleLocationChange} = this.state
+  //console.log(this.props.history)
 
-      <div className={!this.state.searched ? "SearchBar" : "SearchBarSearched"} >
+  let i = Math.floor(Math.random() * this.props.eventPhotos.length)
+  const  history = this.props
+  //console.log(this.props.eventPhotos[i]);
+
+  return(
+    <div className="SearchBar_Hero">
+    <img src={this.props.eventPhotos[i]} alt="Food"/>
+      <div className={!!history.match.isExact ? "SearchBar" : "Searched"}>
         <div className="SearchBar-sort-options">
           <ul>
             {this.state.searched ? this.renderSortByOptions() : ""}
@@ -85,13 +93,12 @@ render() {
         <div className="SearchBar-fields">
           <input placeholder="Search Business" onChange={this.handleTermChange}/>
           <input placeholder="Where?" onChange={this.handleLocationChange} />
+          <div className="SearchBar-submit">
+              <a onClick={this.handleSearch}>Go</a>
+          </div>
         </div>
-
-        <div className="SearchBar-submit">
-            <a onClick={this.handleSearch}>Lets Go</a>
-        </div>
-
       </div>
+    </div>
     );
   }
 }
