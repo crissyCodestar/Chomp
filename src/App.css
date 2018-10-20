@@ -13,12 +13,18 @@ a:hover{
   text-decoration: underline;
 }
 
+.searchContainer {
+  position: relative;
+    z-index: 0;
+}
 
 .container {
+  position: relative;
   background-color: #fff;
   width: 70%;
   margin: auto;
   padding: 2rem;
+  z-index: 2;
 }
 
 .header{

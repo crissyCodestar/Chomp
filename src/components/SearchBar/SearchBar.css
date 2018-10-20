@@ -3,21 +3,44 @@
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  top:50%;
+  top:40%;
+  z-index: 3;
+  margin: auto;
+  left:0;
+  right: 0;
 }
 
 .SearchBar_Hero {
   height: 25rem;
   width:100%;
+  margin:auto;
   position: relative;
+}
+
+.SearchBar_Hero img{
+  height: 35rem;
+  width:100%;
   object-fit: cover;
-  opacity: .5;
+  opacity: .8;
+  /* background-image: linear-gradient(rgba(255,255,255,0), rgb(99,99,99)); */
+}
+
+.SearchBar_Hero::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent 0%, #474747 100%);
+  margin-top: -35rem;
+  height: 35rem;
+  width: 100%;
+  content: '';
+  z-index: 0;
 }
 
 .SearchBar .Searched {
   background-image: linear-gradient(rgb(167,135,75), rgba(172,64,11,.4));
   height: 15rem;
 }
+
 .SearchBar-sort-options ul {
   display:flex;
   justify-content: center;
@@ -47,6 +70,7 @@
   justify-content: center;
   /* margin-bottom: 2.88rem; */
   color: #fff;
+
 }
 
 .SearchBar-fields input {

@@ -69,7 +69,7 @@ render() {
   return (
     <div className="App">
 
-      <div>
+      <div className='searchContainer'>
 
         <Link to='/'><h1 className="header">Chomp</h1></Link>
         <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
