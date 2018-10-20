@@ -34,7 +34,7 @@ const BusinessProfileInfo = ({businessInfo, reviewsList}) => (
 
               <Background  businessInfo={businessInfo} />
 
-              <Body businessInfo={businessInfo} />
+              <Body bodyInfo={businessInfo} />
               <h1>Suggested Reviews</h1>
               {
                 reviewsList.map(review => (

@@ -1,0 +1,21 @@
+.review {
+  width: 90%;
+  height: auto;
+  left:0;
+  right: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+.review_photo {
+
+}
+
+.review_photo img {
+
+}
+
+.review_comment {
+
+}

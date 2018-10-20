@@ -1,8 +1,15 @@
 import React from 'react';
 
-const Body = () => (
+const Body = ({bodyInfo}) => (
   <div>
-    <h1>Body</h1>
+    {console.log(bodyInfo.location.display_address)}
+    <div>
+      {bodyInfo.location.display_address.map((loc, i) => (
+        <div key={i}>
+            {loc}
+        </div>
+      ))}
+    </div>
   </div>
 )
 
