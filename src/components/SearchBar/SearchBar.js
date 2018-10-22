@@ -56,6 +56,7 @@ handleSearch(event){
   event.preventDefault();
   this.props.history.push('/businesses');
 
+
 }
 
 renderSortByOptions(){
@@ -83,7 +84,7 @@ render() {
 
   return(
     <div className={!!history.match.isExact ? "SearchBar_Hero": null}>
-    <img src={this.props.eventPhotos[i]} alt="Food"/>
+    { !!history.match.isExact ? <img src={this.props.eventPhotos[i]} alt=""/> : null}
       <div className={!!history.match.isExact ? "SearchBar" : "Searched"}>
         <div className="SearchBar-sort-options">
           <ul>

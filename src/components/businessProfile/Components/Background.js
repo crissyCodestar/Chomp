@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Background = ({businessInfo}) => (
+const Background = ({backgroundInfo}) => (
   <div>
-    <img src={businessInfo.image_url}/>
+    {backgroundInfo.photos.map((pic, i) => (
+      <div key={i}>
+        <img src={pic}/>
+      </div>
+    ))}
+
   </div>
 )
 
