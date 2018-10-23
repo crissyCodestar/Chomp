@@ -21,7 +21,8 @@
   height: 35rem;
   width:100%;
   object-fit: cover;
-  opacity: .8;
+  opacity: .9;
+  filter: contrast(90%) saturate(150%) brightness(140%);
   /* background-image: linear-gradient(rgba(255,255,255,0), rgb(99,99,99)); */
 }
 

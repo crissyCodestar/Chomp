@@ -56,13 +56,13 @@ handleSearch(event){
   event.preventDefault();
   this.props.history.push('/businesses');
 
+
 }
 
 renderSortByOptions(){
 
   return Object.keys(this.sortByOptions).map(sortByOption => {
     let sortByOptionValue = this.sortByOptions[sortByOption];
-     console.log(sortByOptionValue);
     return (<li className={this.getSortByClass(sortByOptionValue)}
               onClick={this.handleSortByChange}
               key={sortByOptionValue}>
@@ -70,6 +70,15 @@ renderSortByOptions(){
           </li>);
   });
 }
+
+renderHomeSearch(i){
+  (<img src={this.props.eventPhotos[i]} alt=""/>)
+}
+
+// renederProfileSearch(){
+//   (<)
+// }
+
 
 
 
@@ -83,7 +92,8 @@ render() {
 
   return(
     <div className={!!history.match.isExact ? "SearchBar_Hero": null}>
-    <img src={this.props.eventPhotos[i]} alt="Food"/>
+    { !!history.match.isExact ? <img src={this.props.eventPhotos[i]} alt=""/> : null}
+       {/*this.state.searched ? */}
       <div className={!!history.match.isExact ? "SearchBar" : "Searched"}>
         <div className="SearchBar-sort-options">
           <ul>

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 class Business extends React.Component {
   render(){
+    console.log(this);
     const { id,imageSrc, name, address, city, state, zipCode, category, rating, reviewCount} = this.props.business
     return (
       <div className="Business">

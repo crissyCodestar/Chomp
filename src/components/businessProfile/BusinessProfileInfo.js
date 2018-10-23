@@ -32,7 +32,7 @@ const BusinessProfileInfo = ({businessInfo, reviewsList}) => (
 
               <Header businessInfo={businessInfo} />
 
-              <Background  businessInfo={businessInfo} />
+              <Background  backgroundInfo={businessInfo} />
 
               <Body bodyInfo={businessInfo} />
               <h1>Suggested Reviews</h1>
