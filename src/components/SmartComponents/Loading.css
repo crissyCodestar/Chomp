@@ -1,51 +1,50 @@
 
 .loading_container{
-  padding:  10em 0;
-  height: 20em;
-  width: 90%;
+  padding:  7em 0;
+  height: 20rem;
+  width: 70%;
 }
 
 .loading_box {
-  width:100px;
-  height:100px;
-  background-color: red;
+  width:50px;
+  height:50px;
   position: relative;
-  -webkit-animation: myfirst 5s ease-in-out 1s infinite ; /* Safari 4.0 - 8.0 */
-  animation: myfirst 5s ease-in-out 1s infinite ;
-}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes myfirst {
-  0%  {transform: scale(0); background-color:red; left:0px; top:0px;}
-  9% {transform: scale(1); background-color:blue; left:0px; top:0px;}
-  18%  {transform: scale(0); background-color:red; left:0px; top:0px;}
-
-  27% {transform: scale(0); background-color:blue; left:300px; top:0px;}
-  36% {transform: scale(1); background-color:yellow; left:300px; top:0px;}
-  45% {transform: scale(0); background-color:blue; left:300px; top:0px;}
-
-  54% {transform: scale(0); background-color:yellow;  left:600px; top:0px;}
-  63% {transform: scale(1); background-color:purple; left:600px; top:0px;}
-  72% {transform: scale(0); background-color:yellow;  left:600px; top:0px;}
-
-  81% {transform: scale(0); background-color:purple;  left:900px; top:0px;}
-  90% {transform: scale(1); background-color:green; left:900px; top:0px;}
-  100% {transform: scale(0); background-color:purple;  left:900px; top:0px;}
+  -webkit-animation: loading 5s ease-in-out 1s infinite ; /* Safari 4.0 - 8.0 */
+  animation: loading 5s ease-in-out 1s infinite ;
 }
 
-@keyframes myfirst {
-  0%  {transform: scale(0); background-color:red; left:0px; top:0px;}
-  9% {transform: scale(1); background-color:blue; left:0px; top:0px;}
-  18%  {transform: scale(0); background-color:red; left:0px; top:0px;}
+@-webkit-keyframes loading {
+  0%  {transform: scale(0); background-color:#cca353; left:50%; top:0px;}
+  9% {transform: scale(1); background-color:#ffc965; left:50%; top:0px;}
+  18%  {transform: scale(0); background-color:#cca353; left:50%; top:0px;}
 
-  27% {transform: scale(0); background-color:blue; left:300px; top:0px;}
-  36% {transform: scale(1); background-color:yellow; left:300px; top:0px;}
-  45% {transform: scale(0); background-color:blue; left:300px; top:0px;}
+  27% {transform: scale(0); background-color:#ffc965; left:60%; top:0px;}
+  36% {transform: scale(1); background-color:#cca353; left:60%; top:0px;}
+  45% {transform: scale(0); background-color:#ffc965; left:60%; top:0px;}
 
-  54% {transform: scale(0); background-color:yellow;  left:600px; top:0px;}
-  63% {transform: scale(1); background-color:purple; left:600px; top:0px;}
-  72% {transform: scale(0); background-color:yellow;  left:600px; top:0px;}
+  54% {transform: scale(0); background-color:#cca353;  left:70%; top:0px;}
+  63% {transform: scale(1); background-color:#ffc965; left:70%; top:0px;}
+  72% {transform: scale(0); background-color:#cca353;  left:70%; top:0px;}
 
-  81% {transform: scale(0); background-color:purple;  left:900px; top:0px;}
-  90% {transform: scale(1); background-color:green; left:900px; top:0px;}
-  100% {transform: scale(0); background-color:purple;  left:900px; top:0px;}
+  81% {transform: scale(0); background-color:#ffc965;  left:80%; top:0px;}
+  90% {transform: scale(1); background-color:#cca353; left:80%; top:0px;}
+  100% {transform: scale(0); background-color:#ffc965;  left:80%; top:0px;}
+}
+
+@keyframes loading {
+  0%  {transform: scale(0); background-color:#cca353; left:50%; top:0px;}
+  9% {transform: scale(1); background-color:#ffc965; left:50%; top:0px;}
+  18%  {transform: scale(0); background-color:#cca353; left:50%; top:0px;}
+
+  27% {transform: scale(0); background-color:#ffc965; left:60%; top:0px;}
+  36% {transform: scale(1); background-color:#cca353; left:60%; top:0px;}
+  45% {transform: scale(0); background-color:#ffc965; left:60%; top:0px;}
+
+  54% {transform: scale(0); background-color:#cca353;  left:70%; top:0px;}
+  63% {transform: scale(1); background-color:#ffc965; left:70%; top:0px;}
+  72% {transform: scale(0); background-color:#cca353;  left:70%; top:0px;}
+
+  81% {transform: scale(0); background-color:#ffc965;  left:80%; top:0px;}
+  90% {transform: scale(1); background-color:#cca353; left:80%; top:0px;}
+  100% {transform: scale(0); background-color:#ffc965;  left:80%; top:0px;}
 }

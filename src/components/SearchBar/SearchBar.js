@@ -20,6 +20,7 @@ constructor(props) {
   this.handleLocationChange = this.handleLocationChange.bind(this);
   this.handleSearch = this.handleSearch.bind(this);
   this.handleSortByChange = this.handleSortByChange.bind(this);
+  this.getSortByClass = this.getSortByClass.bind(this);
 
    this.sortByOptions = {
     'Best Match': 'best_match',
@@ -29,16 +30,20 @@ constructor(props) {
 }
 
 getSortByClass(sortByOptions){
+
+  console.log("ClassSort", sortByOptions)
   if(this.state.sortBy === sortByOptions){
-    return 'active';
+     return 'active';
   }
-  return '';
+   return '';
 }
 
-handleSortByChange(event, sortByOptions){
+handleSortByChange( sortByOptions){
+
   this.setState({sortBy: sortByOptions})
-  console.log(event.target.sortByOptionValue);
- // console.log(this.state.sortBy);
+console.log("Change",this.state.sortBy)
+this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy)
+
 }
 
 handleTermChange(event){
@@ -50,7 +55,6 @@ handleLocationChange(event){
 }
 
 handleSearch(event){
-  // console.log(this.state.sortBy);
   this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy)
   this.setState({searched:true})
   event.preventDefault();
@@ -61,11 +65,14 @@ handleSearch(event){
 
 renderSortByOptions(){
 
-  return Object.keys(this.sortByOptions).map(sortByOption => {
+  return Object.keys(this.sortByOptions).map((sortByOption, i) => {
     let sortByOptionValue = this.sortByOptions[sortByOption];
     return (<li className={this.getSortByClass(sortByOptionValue)}
-              onClick={this.handleSortByChange}
-              key={sortByOptionValue}>
+              onClick={() => this.handleSortByChange(sortByOptionValue)}
+              value={sortByOptionValue}
+              key={i}>
+              {console.log("sortByOptionValue",this.sortByOptions[sortByOption])}
+
             {sortByOption}
           </li>);
   });
@@ -85,7 +92,7 @@ renderHomeSearch(i){
 render() {
   const {searched, handleSearch, handleTermChange, handleLocationChange} = this.state
   //console.log(this.props.history)
-
+  console.log(this.state.sortBy);
   let i = Math.floor(Math.random() * this.props.eventPhotos.length)
   const  history = this.props
   //console.log(this.props.eventPhotos[i]);

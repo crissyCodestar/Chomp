@@ -1,6 +1,7 @@
 import React from 'react';
 import './Business.css';
 import BusinessProfile from '../BusinessProfile/BusinessProfile';
+import Ratings from '../SmartComponents/Ratings';
 import Yelp from '../../util/Yelp';
 import { Link } from 'react-router-dom';
 
@@ -25,7 +26,8 @@ class Business extends React.Component {
                                   {category.toUpperCase()}
                               </h3>
                               <h3 className="rating">
-                                  {`${rating} stars`} | {`${reviewCount} reviews`}
+                                  <Ratings rating={rating} />
+                                  <p>`${reviewCount} reviews`</p>
                               </h3>
                         </div>
                               <br />
