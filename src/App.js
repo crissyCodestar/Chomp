@@ -38,10 +38,16 @@ componentDidMount(){
 }
 
 searchYelp(term, location, sortBy) {
+  console.log("searchYELP", sortBy);
    Yelp.search(term, location, sortBy).then(businesses => {
      this.setState({businesses: businesses ,loading: false});
    });
 }
+
+componentWillReceiveProps(nextProps){
+  this.setState({businesses:nextProps})
+}
+
 
 renderBusinesses(){
   return this.state.loading ? (

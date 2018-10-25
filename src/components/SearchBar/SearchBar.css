@@ -22,7 +22,7 @@
   width:100%;
   object-fit: cover;
   opacity: .9;
-  filter: contrast(90%) saturate(150%) brightness(140%);
+  filter: contrast(90%) saturate(150%) brightness(120%);
   /* background-image: linear-gradient(rgba(255,255,255,0), rgb(99,99,99)); */
 }
 
