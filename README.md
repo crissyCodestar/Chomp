@@ -1,3 +1,4 @@
 # Chomp Food Search App
 
-Updating Chomp App 
+Currently working on:
+  -Business profile page

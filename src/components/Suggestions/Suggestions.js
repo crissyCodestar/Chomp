@@ -6,9 +6,9 @@ import Loading from '../SmartComponents/Loading';
 import { Link } from 'react-dom';
 
 const Suggestions = ({events, hotEvents}) =>  {
-
 return   (
-  <section>
+  <section className='container'>
+  {console.log(hotEvents)}
       <div className='featured__cards'>
         <div className='h2'>
           <h1>Hot And New</h1>

@@ -28,7 +28,7 @@ class Ratings extends Component{
     }
     return(
       <div>
-        {stars}
+        {stars}  {this.props.ratings} reviews
       </div>
     )
   }

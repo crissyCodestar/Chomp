@@ -82,40 +82,30 @@ renderHomeSearch(i){
   (<img src={this.props.eventPhotos[i]} alt=""/>)
 }
 
-// renederProfileSearch(){
-//   (<)
-// }
-
 
 
 
 render() {
   const {searched, handleSearch, handleTermChange, handleLocationChange} = this.state
-  //console.log(this.props.history)
-  console.log(this.state.sortBy);
-  let i = Math.floor(Math.random() * this.props.eventPhotos.length)
   const  history = this.props
-  //console.log(this.props.eventPhotos[i]);
 
   return(
-    <div className={!!history.match.isExact ? "SearchBar_Hero": null}>
-    { !!history.match.isExact ? <img src={this.props.eventPhotos[i]} alt=""/> : null}
-       {/*this.state.searched ? */}
-      <div className={!!history.match.isExact ? "SearchBar" : "Searched"}>
+
+      <div className={!!history.match.isExact ? "SearchBar" : "SearchBarSearched"}>
         <div className="SearchBar-sort-options">
           <ul>
             {this.state.searched ? this.renderSortByOptions() : ""}
           </ul>
         </div>
         <div className="SearchBar-fields">
-          <input placeholder="Search Business" onChange={this.handleTermChange}/>
-          <input placeholder="Where?" onChange={this.handleLocationChange} />
+          <input placeholder="Find   Pizza, Parade, Mover..." onChange={this.handleTermChange}/>
+          <input placeholder="Near   Brooklyn, Chicago, NOLA..." onChange={this.handleLocationChange} />
           <div className="SearchBar-submit">
               <a onClick={this.handleSearch}>Go</a>
           </div>
         </div>
       </div>
-    </div>
+    
     );
   }
 }

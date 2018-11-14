@@ -1,5 +1,9 @@
+.container {
+  width: 80%;
+}
+
 .featured__cards {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -7,23 +11,24 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
-  padding: 2.5rem 1rem;
-
+  padding: 2rem 0;
+  width: 100%;
 }
+
 
 .card {
   display: grid;
   grid-template-rows: 2fr 1fr;
   border: 2px solid #e7e7e7;
-  border-radius: 7px;
-  padding: 1rem -10rem;
+  border-radius: 5px;
+  margin: 0;
 }
 
 .card__img {
   height: 12rem;
   width: 100%;
   overflow: hidden;
-  border-radius: 7px;
+  border-radius: 5px;
 
 }
 
@@ -36,9 +41,13 @@
 
 
 .card_info {
-  padding: 0 .3rem .3rem .6rem;
+
   line-height: 1.6;
+  overflow: hidden;
+  width: 100%;
+  padding: 7px;
 }
+
 
 .card_info_cat{
   font-size: .8rem;
@@ -49,6 +58,7 @@
   color: #2f2f2f;
   font-size: .9rem;
   font-weight: bold;
+  overflow: hidden;
 }
 
 .card_info__rating {
