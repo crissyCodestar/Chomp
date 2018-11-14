@@ -1,16 +1,18 @@
 .star_rating {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  padding: 0 1px;
   color: #ABABAB;
 }
 
 .full_star {
-  font-size: 1rem;
-  color: #af850a;
+  font-size: 1.1rem;
+  color: #cca353;
+  padding: 0 1px;
 }
 
 .half_star {
   font-size: 1rem;
-  color: #af850a;
+  color: #cca353;
 
 }

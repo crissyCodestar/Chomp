@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900|Raleway:400,500,600,700,800,900|Titillium+Web:400,600,700');
 .App {
-
-  background-color: #474747;
+font-family: 'Raleway', sans-serif;
+  background-color: rgb(47,47,47);
+  z-index: 0;
 }
 
 a:link{
@@ -18,13 +20,49 @@ a:hover{
     z-index: 0;
 }
 
+/* .App_container {
+  padding-top: 10rem;
+} */
+
 .container {
   position: relative;
   background-color: #fff;
   width: 70%;
   margin: auto;
-  padding: 2rem;
+  padding: 3rem 0;
   z-index: 2;
+  border: 2px white solid;
+  border-radius: 3px;
+
+}
+
+.img_container {
+    position: absolute;
+    height: 90vh;
+    width: 100vw;
+
+}
+
+.img_container img {
+
+  width: 100vw;
+  height: 90vh;
+  object-fit:cover;
+  opacity: .9;
+  filter: contrast(120%) saturate(125%) brightness(104%);
+  background-image: linear-gradient(rgba(255,255,255,1), rgb(47,47,47));
+}
+
+
+.img_container::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent 0%, rgb(47,47,47) 100%);
+  margin-top: -35rem;
+  height: 35rem;
+  width: 100%;
+  content: '';
+  z-index: 0;
 }
 
 .header{
@@ -32,21 +70,22 @@ a:hover{
   font-family: 'Kelly Slab';
   background-color: #cca353;
   margin: 0;
-  padding: .30rem 2rem;
+  padding: 1rem 9rem;
   font-size: 4rem;
   color:white;
-  font-weight: 600;
+  font-weight: 100;
 
 }
 
 .h2{
     text-align: center;
-  height: 2rem;
-  font-family: 'Kelly Slab';
-    background-color: #cca353;
+    height: 2rem;
+    font-family: 'Kelly Slab';
+    /* background-color: #cca353; */
     border-radius: 5px;
     padding:.5rem;
     font-size: 2rem;
-    color:white;
+    color:#cca353;
     font-weight: 500;
+    border-bottom: #cca353 2px solid;
 }

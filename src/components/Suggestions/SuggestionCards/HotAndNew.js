@@ -19,6 +19,9 @@ const HotAndNew = ({hotEvent, description, id, image_url, name, category, distan
                   </Link>
                   {/*<a href={hotEvent.url} target='blank'>{hotEvent.name}</a>*/}
               </div>
+              <div className='card_info__rating'>
+                  <Ratings rating={hotEvent.rating} ratings={hotEvent.review_count}/>
+              </div>
               <div>
                   {/* {Math.round(hotEvent.distance * 0.00062137) / 100} miles */}
               </div>
@@ -31,8 +34,8 @@ const HotAndNew = ({hotEvent, description, id, image_url, name, category, distan
                           prev === null ? [curr] : [prev, ', ', curr]))
                   }
               </div>
-              <div className='card_info__rating'>
-                  <Ratings rating={hotEvent.rating}/> {hotEvent.review_count} reviews
+              <div>
+
               </div>
           </div>
       </div>

@@ -60,33 +60,40 @@ renderBusinesses(){
 }
 
 renderSuggetions(){
+  let hotEvents = this.state
+
+  //   let i = Math.floor(Math.random() * eventPhotos.length)
   return this.state.eventLoading ? (
       <Loading />
-  ) : (
-       <Suggestions events={this.state.events} hotEvents={this.state.hotEvents} />
+  ) : (<div>
+        <Suggestions events={this.state.events}
+          hotEvents={this.state.hotEvents}
+          />
+      </div>
   )
 }
 
 
 render() {
-    //console.log(this.state.events,"hot=>", this.state.hotEvents)
-    let eventPhotos = this.state.hotEvents.map(pic => pic.image_url)
-      let i = Math.floor(Math.random() * eventPhotos.length)
+  let eventPhotos = this.state.hotEvents.map(pic => pic.image_url)
+  let i = Math.floor(Math.random() * eventPhotos.length)
   return (
     <div className="App">
-
-      <div className='searchContainer'>
-
-        <Link to='/'><h1 className="header">Chomp</h1></Link>
-        <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
-    </div>
-
-      <div className='container'>
-        <Switch>
-          <Route exact path='/' render={this.renderSuggetions} />
-          <Route exact path='/businesses' render={this.renderBusinesses} />
-          <Route path='/businesses/:id' component={BusinessProfile} />
-        </Switch>
+      <div className='App_container'>
+        <div className="img_container">
+            <img src={eventPhotos[i]} alt=""/>
+        </div>
+        <div className='searchContainer'>
+            <Link to='/'><h1 className="header">Chomp</h1></Link>
+            <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
+        </div>
+        <div className='container'>
+          <Switch>
+            <Route exact path='/' render={this.renderSuggetions} />
+            <Route exact path='/businesses' render={this.renderBusinesses} />
+            <Route path='/businesses/:id' component={BusinessProfile} />
+          </Switch>
+        </div>
       </div>
     </div>
     );
