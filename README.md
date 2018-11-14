@@ -1,4 +1,5 @@
 # Chomp Food Search App
 
 Currently working on:
-  -Business profile page
+  -BuisnessList css
+  -Business profile page css

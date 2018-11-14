@@ -10,8 +10,6 @@ import Home from './components/Home/Home';
 import Suggestions from './components/Suggestions/Suggestions';
 import Loading from './components/SmartComponents/Loading';
 
-
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -24,7 +22,7 @@ class App extends Component {
     }
 
     this.searchYelp = this.searchYelp.bind(this);
-    this.renderSuggetions = this.renderSuggetions.bind(this);
+    this.renderHome = this.renderHome.bind(this);
     this.renderBusinesses = this.renderBusinesses.bind(this);
   }
 
@@ -55,21 +53,21 @@ renderBusinesses(){
   ) : this.state.businesses == 0 ? (
     <div> Doesnt exist, try your search again</div>
   ) : (
-      <BusinessList businesses={this.state.businesses} />
+      <BusinessList
+      businesses={this.state.businesses}
+      />
   )
 }
 
-renderSuggetions(){
-  let hotEvents = this.state
-
-  //   let i = Math.floor(Math.random() * eventPhotos.length)
+renderHome(){
   return this.state.eventLoading ? (
       <Loading />
-  ) : (<div>
-        <Suggestions events={this.state.events}
-          hotEvents={this.state.hotEvents}
-          />
-      </div>
+  ) : (
+    <div>
+      <Home events={this.state.events}
+      hotEvents={this.state.hotEvents}
+      />
+    </div>
   )
 }
 
@@ -80,16 +78,16 @@ render() {
   return (
     <div className="App">
       <div className='App_container'>
-        <div className="img_container">
-            <img src={eventPhotos[i]} alt=""/>
-        </div>
+      <div className="img_container">
+          <img src={eventPhotos[i]} alt=""/>
+      </div>
         <div className='searchContainer'>
             <Link to='/'><h1 className="header">Chomp</h1></Link>
             <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
         </div>
         <div className='container'>
           <Switch>
-            <Route exact path='/' render={this.renderSuggetions} />
+            <Route exact path='/' render={this.renderHome} />
             <Route exact path='/businesses' render={this.renderBusinesses} />
             <Route path='/businesses/:id' component={BusinessProfile} />
           </Switch>
