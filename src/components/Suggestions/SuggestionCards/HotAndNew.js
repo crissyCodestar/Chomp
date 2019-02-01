@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Suggestions.css';
 import Ratings from '../../SmartComponents/Ratings';
+import Categories from '../../SmartComponents/Categories';
 
 const HotAndNew = ({hotEvent, description, id, image_url, name, category, distance }) =>(
 
@@ -26,13 +27,7 @@ const HotAndNew = ({hotEvent, description, id, image_url, name, category, distan
                   {/* {Math.round(hotEvent.distance * 0.00062137) / 100} miles */}
               </div>
               <div  className='card_info_cat' >
-                  {hotEvent.categories.map((cat, i) =>
-                        (<span key={i}>
-                            {cat.title}
-                          </span>)
-                      ).reduce((prev, curr) => (
-                          prev === null ? [curr] : [prev, ', ', curr]))
-                  }
+                  <Categories categories={hotEvent.categories}/>
               </div>
               <div>
 

@@ -78,9 +78,9 @@ renderSortByOptions(){
   });
 }
 
-renderHomeSearch(i){
-  (<img src={this.props.eventPhotos[i]} alt=""/>)
-}
+// renderHomeSearch(i){
+//   return <img src={this.props.eventPhotos[i]} alt=""/>
+// }
 
 
 
@@ -88,13 +88,14 @@ renderHomeSearch(i){
 render() {
   const {searched, handleSearch, handleTermChange, handleLocationChange} = this.state
   const  history = this.props
-
+  const  location = this.props.location.pathname
   return(
 
       <div className={!!history.match.isExact ? "SearchBar" : "SearchBarSearched"}>
+      {console.log("Location",this.props)}
         <div className="SearchBar-sort-options">
           <ul>
-            {this.state.searched ? this.renderSortByOptions() : ""}
+            {location == "/businesses" & this.state.searched ? this.renderSortByOptions() : ""}
           </ul>
         </div>
         <div className="SearchBar-fields">
@@ -105,7 +106,7 @@ render() {
           </div>
         </div>
       </div>
-    
+
     );
   }
 }

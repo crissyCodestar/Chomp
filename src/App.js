@@ -7,7 +7,6 @@ import SearchBar from './components/SearchBar/SearchBar';
 import Yelp from './util/Yelp';
 import BusinessProfile from './components/BusinessProfile/BusinessProfile';
 import Home from './components/Home/Home';
-import Suggestions from './components/Suggestions/Suggestions';
 import Loading from './components/SmartComponents/Loading';
 
 class App extends Component {
@@ -24,12 +23,13 @@ class App extends Component {
     this.searchYelp = this.searchYelp.bind(this);
     this.renderHome = this.renderHome.bind(this);
     this.renderBusinesses = this.renderBusinesses.bind(this);
+    this.renderBackgroundImage = this.renderBackgroundImage.bind(this);
   }
 
 componentDidMount(){
   Yelp.events().then(events => {
-    this.setState({events: events ,eventLoading: false})
-  }),
+    this.setState({events: events , eventLoading: false})
+  })
   Yelp.hotAndNew().then(hotEvents => {
     this.setState({ hotEvents : hotEvents ,eventLoading: false})
   })
@@ -50,7 +50,7 @@ componentWillReceiveProps(nextProps){
 renderBusinesses(){
   return this.state.loading ? (
         <Loading />
-  ) : this.state.businesses == 0 ? (
+  ) : this.state.businesses === 0 ? (
     <div> Doesnt exist, try your search again</div>
   ) : (
       <BusinessList
@@ -71,19 +71,28 @@ renderHome(){
   )
 }
 
-
-render() {
+renderBackgroundImage(){
   let eventPhotos = this.state.hotEvents.map(pic => pic.image_url)
   let i = Math.floor(Math.random() * eventPhotos.length)
+  return window.location.pathname !== '/' ? (
+    ""
+  ) : (
+    <div className="img_container">
+        <img src={eventPhotos[i]} alt=""/>
+    </div>
+  )
+}
+
+
+render() {
+
   return (
     <div className="App">
       <div className='App_container'>
-      <div className="img_container">
-          <img src={eventPhotos[i]} alt=""/>
-      </div>
+      {this.renderBackgroundImage()}
         <div className='searchContainer'>
             <Link to='/'><h1 className="header">Chomp</h1></Link>
-            <SearchBar eventPhotos={eventPhotos} searchYelp={this.searchYelp} />
+            <SearchBar searchYelp={this.searchYelp} />
         </div>
         <div className='container'>
           <Switch>

@@ -3,9 +3,20 @@ import './Suggestions.css';
 import Events from './SuggestionCards/Events';
 import HotAndNew from './SuggestionCards/HotAndNew';
 import Loading from '../SmartComponents/Loading';
+import CardTemplate from './SuggestionCards/CardTemplate';
 import { Link } from 'react-dom';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
-const Suggestions = ({events, hotEvents}) =>  {
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    justifyContent:'center'
+  },
+});
+
+const Suggestions = ({events, hotEvents, classes}) =>  {
 return   (
   <section className='container'>
   {console.log(hotEvents)}
@@ -29,9 +40,32 @@ return   (
           ))}
         </div>
       </div>
+      <div className={classes.root}>
+          <div className='h2'>
+              <h1>Featured Events</h1>
+          </div>
+        <Grid container spacing={24} className='card__container'>
+          {events.map(event => (
+            <Grid item lg={4} xs={12}>
+              <CardTemplate
+              key={event.id}
+              img={event.image_url}
+              mediaTitle={event.id}
+              title={event.name}
+              url={event.event_site_url}
+              content={event.is_free ?  "FREE event" : `$${event.cost }`}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
 
   </section>
 )
-}
+};
 
-export default Suggestions;
+Suggestions.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Suggestions);

@@ -29,11 +29,16 @@ class BusinessProfile extends React.Component{
     });
   }
 
-
-
+  // getCategories(){
+  //   const { businessInfo } = this.state
+  //   !!businessInfo ?
+  //   (businessInfo.categories.length)
+  // }
 
 
   render(){
+    //let category = this.state.businessInfo.categories.length
+    // console.log("check",category);
     return this.state.businessLoading ? (
       <div>
           <Loading />

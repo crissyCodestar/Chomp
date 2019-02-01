@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './Ratings.css';
 
-class Ratings extends Component{
-  constructor(props) {
-    super(props);
-  }
+const Ratings =({reviewCount, rating, review}) => {
 
-  render(){
+
     let stars = []
-    let remainder = this.props.rating % 1
+    let remainder = rating % 1
     for(let i = 1; i <= 5; i++){
       let classRating = "star_rating";
 
-      if(this.props.rating >= i && this.props.rating !== null){
+      if(rating >= i && rating !== null){
         classRating += 'star_rating full_star'
       }
     {/*  if(remainder > 0){
@@ -28,10 +25,10 @@ class Ratings extends Component{
     }
     return(
       <div>
-        {stars}  {this.props.ratings} reviews
+        {stars} {reviewCount} {!!review ? "Reviews" : ""}
       </div>
     )
-  }
+
 }
 
 export default Ratings;
