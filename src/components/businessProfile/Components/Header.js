@@ -1,37 +1,50 @@
 import React from 'react';
+import Ratings from '../../SmartComponents/Ratings';
+import Categories from '../../SmartComponents/Categories';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { Grid, Typography } from '@material-ui/core';
 
-const Header = ({businessInfo}) => (
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  container: {
+    justifyContent: 'center'
+  }
+});
 
-<div>
-{/*
-  {Header}
-    Name   Category Price Rating Review count
-    */}
-    {console.log(businessInfo.name)}
-  <div>
-    <h1>{businessInfo.name}</h1>
-  </div>
-  <div>
-    <div>
-    {businessInfo.category}
-    </div>
-  </div>
-  <div>
-    <div>
-    {businessInfo.price}
-    </div>
-  </div>
-  <div>
-    <div>
-    {businessInfo.rating}
-    </div>
-  </div>
-  <div>
-    <div>
-    {businessInfo.review_count}
-    </div>
-  </div>
+const Header = ({businessInfo, classes}) => (
+
+<div className={classes.root}>
+  <Grid container className={classes.container}>
+{console.log(businessInfo)}
+    {console.log(businessInfo.categories.map(el => el.title).join(", "))}
+  <Grid item xs={10}>
+    <Typography  variant="h3" >
+      {businessInfo.name}
+    </Typography>
+  </Grid>
+
+
+  <Grid item xs={10}>
+    <Typography variant="h6">
+      <Ratings rating={businessInfo.rating} reviewCount={businessInfo.review_count} review={true} />
+    </Typography>
+  </Grid>
+
+  <Grid item xs={10}>
+    <Typography variant="h6">
+    {businessInfo.price} ・ {businessInfo.categories.map(el => el.title).join(', ')}
+    </Typography>
+  </Grid>
+
+  </Grid>
 </div>
-)
+);
 
-export default Header;
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Header);

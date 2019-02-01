@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const apiKey ='d22VAAFnffpCl8jh9z2KhwG2rtqoKlpGdactYnGvHSwq1b-3KPci5QSB6ufj9544xuhWAr2sbH0PlRgABBseVA7_xR0mdJXqRxZ5oXwyQ4A7DUE2PJrI-uFvBR9wWnYx';
-
+const apiKey = process.env.REACT_APP_ACCESS_TOKEN
+console.log(apiKey);
 
 
 const Yelp = {
@@ -44,6 +44,7 @@ events(){
   }).then(res => {
     return res.json()
   }).then(eventList => {
+    console.log("Event",eventList.events);
     if(eventList.events){
       return eventList.events
     }

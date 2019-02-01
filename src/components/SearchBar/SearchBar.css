@@ -78,7 +78,7 @@
 }
 
 .SearchBarSearched {
-  background-image: linear-gradient(rgb(167,135,75), rgba(172,64,11,0));
+  background-image: linear-gradient(rgba(204,163,83,.9), rgba(172,64,11,0));
   display: flex;
   flex-direction: column;
   justify-content: center;
